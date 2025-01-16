@@ -16,28 +16,92 @@ void print(std::vector<int> data) {
 }
 
 int sum(std::vector<int> data) {
-    return 0;
+
+    int soucet = 0; 
+    for (std::size_t i = 0; i < data.size(); i++){
+        int cislo = data[i];
+
+        soucet += cislo;
+
+    }
+    return soucet;
 }
 
 float average(std::vector<int> data) {
-    return 0.0;
+    
+    return (sum(data)+.0) / data.size();
 }
 
 float median(std::vector<int> data) {
+    if(data.size()%2){        
+        return((data.at(data.size()/2)));
+    }else{
+        return (data.at(data.size()/2)+data.at((data.size()-1)/2)+.0)/2;
+    }
     return 0.0;
 }
 
 std::vector<int> range(int start, int end) {
-    return {};
-}
+
+std::vector<int> out;
+int hodnota = start;
+
+    out.push_back(hodnota);
+
+if(start<end){
+    
+    for(int i = start;i < end; i++){
+
+    hodnota = hodnota + 1 ;
+
+    out.push_back(hodnota);
+    }   
+
+    return out;
+    }
+
+else{
+
+    for(int i = start;i > end; i--){
+
+    hodnota = hodnota - 1 ;
+
+    out.push_back(hodnota);
+
+    }       
+    return out;
+    }
+} 
 
 std::vector<int> runningSum(std::vector<int> data) {
-    return {};
+std::vector<int> out;
+int sum=0;
+
+for(std::size_t i = 0; i < data.size(); i++){
+
+    sum += data.at(i);
+    out.push_back(sum);
+}
+    return out;
 }
 
-std::vector<int> rotateRight(std::vector<int> data, int count) {
-    return data;
-}
+/*std::vector<int> rotateRight(std::vector<int> data, int count) {
+    std::vector<int>out;
+    int velikost = 0;
+
+    for(int i = count ; count > 0; i--){
+
+        
+    }
+    for (std::size_t i = 0; i < data.size()-1; i++){
+
+        velikost += i ;
+
+        std::cout<<velikost;
+    }
+    out.push_back(velikost);
+    return ;
+}*/
 
 int main() {
     std::vector<int> vec1 = { 1, 9, 4, 8, 4, 0, 9, 2, 3, 5, 6 };
@@ -46,7 +110,7 @@ int main() {
 
     std::cout << "sum(vec1): " << sum(vec1) << std::endl;
     std::cout << "average(vec1): " << average(vec1) << std::endl;
-    std::cout << "median(asc1): " << median(vec1) << std::endl;
+    std::cout << "median(asc1): " << median(asc2) << std::endl;
 
     std::cout << "range(5, 10): ";
     print(range(5, 10));
@@ -59,4 +123,8 @@ int main() {
     std::cout << "runningSum(vec1): ";
     print(runningSum(vec1));
     std::cout << std::endl;
+
+    //std::cout << "rotateRight(vec1): ";
+    //print(rotateRight(asc1,2));
+    //std::cout << std::endl;
 }

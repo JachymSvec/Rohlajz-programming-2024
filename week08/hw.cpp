@@ -21,13 +21,43 @@ void print(std::vector<int> data) {
  * vzestupně seřazeného seznamu
  * */
 std::vector<int> merge(std::vector<int> a, std::vector<int> b) {
-    return {};
+
+    std::vector<int> merged ;
+    size_t i= 0;
+    size_t j= 0;
+   
+
+    while(i<a.size() && j<b.size()){
+
+        if(a[i]<b[j]){
+            merged.push_back(a[i]);
+            merged.push_back(b[j]);
+        }
+        else{
+            merged.push_back(b[j]);
+            merged.push_back(a[i]);
+        }
+        i= i+1;
+        j= j+1;
+    }
+        if(i<a.size() ){
+            merged.push_back(a[i]);
+
+        }
+        if(j<b.size()){
+           merged.push_back(b[j]);  
+
+        }
+
+    return (merged);
 }
 
 /* Napište funkci histogram, která dostane pole čísel z rozsahu [0-100), a vrátí nové pole takové, že
  * na i-té pozici nového seznamu bude uložen počet výskytů čísla i ve vstupním poli.
  */
 std::vector<int> histogram(std::vector<int> data) {
+
+    
     return {};
 }
 
